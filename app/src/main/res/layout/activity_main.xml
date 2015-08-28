@@ -1,0 +1,204 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical"
+    android:paddingTop="23dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/setup_password_title_first"
+        android:textColor="#757575"
+        android:textSize="17sp" />
+
+    <com.wsl.library.password.PwdDisplayView
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginLeft="13.3dp"
+        android:layout_marginRight="13.3dp"
+        android:layout_marginTop="18.6dp" />
+
+    <LinearLayout
+        android:id="@+id/inputParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#bfbfbf" />
+
+        <FrameLayout
+            android:id="@+id/toggleView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@drawable/white_with_pressed_bg">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_dropdown" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="30sp" />
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="2"
+                android:textSize="30sp" />
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input3"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="3"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input4"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="4"
+                android:textSize="30sp" />
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input5"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="5"
+                android:textSize="30sp" />
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input6"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="6"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input7"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="7"
+                android:textSize="30sp" />
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input8"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="8"
+                android:textSize="30sp" />
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input9"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="9"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.wsl.library.password.PwdInputView
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="#e0e0e0"
+                android:gravity="center"
+                android:textColor="@android:color/transparent"
+                android:textSize="30sp" />
+
+            <com.wsl.library.password.PwdInputView
+                android:id="@+id/input0"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_with_pressed_bg"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="#e0e0e0"
+                android:scaleType="center"
+                android:src="@drawable/ic_password_delete" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

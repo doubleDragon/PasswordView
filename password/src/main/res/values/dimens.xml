@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="default_pwd_view_height">58dp</dimen>
+    <dimen name="default_pwd_view_text_size">30sp</dimen>
+</resources>

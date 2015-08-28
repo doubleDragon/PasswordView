@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <drawable name="white_normal">#fff</drawable>
+    <drawable name="white_pressed">#f7f7f7</drawable>
+
+</resources>
