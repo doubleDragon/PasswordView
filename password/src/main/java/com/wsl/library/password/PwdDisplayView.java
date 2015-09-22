@@ -2,6 +2,7 @@ package com.wsl.library.password;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -16,6 +17,10 @@ import android.view.View;
  */
 public class PwdDisplayView extends View {
 
+    public static final int FLAG_TEXT = 0;
+    public static final int FLAG_ASTERISK = 1;
+    public static final int FLAG_CIRCLE = 2;
+
     private int defaultHeight;
 
     private Path path;
@@ -26,6 +31,9 @@ public class PwdDisplayView extends View {
     private Paint textPaint;
 
     private float textSize;
+    private float radius;
+
+    private int flag;
 
     private String passwordMark = "*";
     private String[] textArray = {
@@ -36,6 +44,11 @@ public class PwdDisplayView extends View {
             "",
             ""
     };
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+        invalidate();
+    }
 
     public PwdDisplayView(Context context) {
         this(context, null);
@@ -54,6 +67,7 @@ public class PwdDisplayView extends View {
         Resources resources = getResources();
         defaultHeight = resources.getDimensionPixelOffset(R.dimen.default_pwd_view_height);
         textSize = resources.getDimension(R.dimen.default_pwd_view_text_size);
+        radius = resources.getDimension(R.dimen.default_pwd_view_radius);
 
         path = new Path();
 
@@ -73,6 +87,10 @@ public class PwdDisplayView extends View {
         textPaint.setStyle(Paint.Style.FILL);
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTextSize(textSize);
+
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PwdDisplayView);
+        flag = a.getInt(R.styleable.PwdDisplayView_flag, FLAG_TEXT);
+        a.recycle();
     }
 
     @Override
@@ -140,8 +158,19 @@ public class PwdDisplayView extends View {
             canvas.save();
             canvas.translate(translateX, rectF.top);
             textPaint.setAlpha(TextUtils.isEmpty(textArray[i]) ? 0 : 255);
-            canvas.drawText(passwordMark, unitWidth / 2, rectF.centerY() + verticalTextOffset * 3 / 2,
-                    textPaint);
+            switch (flag) {
+                case FLAG_TEXT:
+                    canvas.drawText(textArray[i], unitWidth / 2, rectF.centerY() + verticalTextOffset,
+                            textPaint);
+                    break;
+                case FLAG_ASTERISK:
+                    canvas.drawText(passwordMark, unitWidth / 2, rectF.centerY() + verticalTextOffset * 3 / 2,
+                            textPaint);
+                    break;
+                case FLAG_CIRCLE:
+                    canvas.drawCircle(unitWidth / 2, rectF.centerY(), radius, textPaint);
+                    break;
+            }
             canvas.restore();
         }
     }

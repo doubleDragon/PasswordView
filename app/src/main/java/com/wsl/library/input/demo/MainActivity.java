@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (state) {
             case STATE_SETUP_FIRST_PASSWORD:
                 //notice user to input password again
-                if(passwordView.hasFullPassword()) {
+                if (passwordView.hasFullPassword()) {
                     firstPassword = passwordView.getPassword();
                     passwordView.resetPassword();
                     updateTitle(R.string.setup_password_title_second);
@@ -76,21 +76,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case STATE_SETUP_SECOND_PASSWORD:
-                if(firstPassword == null || firstPassword.length <= 0) {
+                if (firstPassword == null || firstPassword.length <= 0) {
                     //this must not happen
                     passwordView.resetPassword();
                     updateTitle(R.string.setup_password_title_first);
                     state = STATE_SETUP_FIRST_PASSWORD;
                     return;
                 }
-                if(passwordView.hasFullPassword()) {
+                if (passwordView.hasFullPassword()) {
                     secondPassword = passwordView.getPassword();
                     state = STATE_CONFIRM_PASSWORD;
                     updateState();
                 }
                 break;
             case STATE_CONFIRM_PASSWORD:
-                if(firstPassword == null || firstPassword.length <= 0 ||
+                if (firstPassword == null || firstPassword.length <= 0 ||
                         secondPassword == null || secondPassword.length <= 0 ||
                         (secondPassword.length != firstPassword.length)) {
                     //this must not happen
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 boolean result = confirmPassword();
                 Snackbar.make(passwordView, result ? "设置成功" : "设置失败", Snackbar.LENGTH_LONG).show();
-                if(!result) {
+                if (!result) {
                     Snackbar.make(passwordView, "两次密码不一致,请重新设置", Snackbar.LENGTH_LONG).show();
                     Arrays.fill(firstPassword, null);
                     Arrays.fill(secondPassword, null);
@@ -120,8 +120,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean confirmPassword() {
         int len = firstPassword.length;
-        for(int i=0; i<len-1; i++) {
-            if(!firstPassword[i].equals(secondPassword[i])) {
+        for (int i = 0; i < len - 1; i++) {
+            if (!firstPassword[i].equals(secondPassword[i])) {
                 return false;
             }
         }

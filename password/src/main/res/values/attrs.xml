@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PwdDisplayView">
+
+        <attr name="flag" format="enum">
+            <enum name="text" value="0"/>
+            <enum name="asterisk" value="1"/>
+            <enum name="circle" value="2"/>
+        </attr>
+
+    </declare-styleable>
+
+</resources>
